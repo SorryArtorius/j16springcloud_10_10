@@ -1,0 +1,16 @@
+server:
+  port: 10086
+spring:
+  application:
+    name: eureka-server # eureka 的服务名称
+eureka:
+  client:
+    service-url: # eureka 的地址信息
+      defaultZone: http://localhost:10086/eureka/
+    fetch-registry: false #不检索服务
+    allow-redirects: false #不向注册中心注册自己
+logging:
+  level:
+    org.org.example: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS

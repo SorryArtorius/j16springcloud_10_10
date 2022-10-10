@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/emp?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: loginservice
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+
+
+logging:
+  level:
+    org.org.example: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+
+
+userservice: # 给某个微服务配置负载均衡规则，这里是userservice服务
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule # 负载均衡规则
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.pojo
